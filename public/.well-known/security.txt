@@ -1,0 +1,9 @@
+# Security contact & disclosure policy (RFC 9116)
+# Replace [SITE_URL] with the production domain.
+Contact: https://[SITE_URL]/#contact
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+
+# Please report vulnerabilities via the contact form with the subject
+# line "SECURITY". Reports are acknowledged within 3 business days.
+# Do not disclose issues publicly until they have been addressed.

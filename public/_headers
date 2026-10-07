@@ -1,0 +1,35 @@
+# --------------------------------------------------------------------
+# Security headers — Netlify / Cloudflare Pages (_headers format).
+# See README.md → "Deployment hardening checklist" for the full setup.
+#
+# NOTE (single-file builds): if you deploy a build where all JS/CSS is
+# INLINED into index.html, browsers cannot apply a strict script-src.
+# In that case, swap the Content-Security-Policy below for the
+# "compatibility" variant at the bottom of this file.
+# The recommended production setup is external hashed assets + the
+# strict policy below.
+# --------------------------------------------------------------------
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io https://api.web3forms.com https://plausible.io https://challenges.cloudflare.com; frame-src https://calendly.com https://challenges.cloudflare.com; form-action 'self' https://formspree.io https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), magnetometer=(), gyroscope=(), accelerometer=()
+  Cross-Origin-Opener-Policy: same-origin
+  X-Frame-Options: DENY
+
+# --------------------------------------------------------------------
+# COMPATIBILITY VARIANT (only for single-file/inlined builds):
+# Allows the inlined bundle to run. Weaker than the strict policy above
+# because scripts can execute inline — prefer external assets.
+#
+# /*
+#   Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline' https://challenges.cloudflare.com https://plausible.io; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com https://plausible.io https://challenges.cloudflare.com; frame-src https://calendly.com https://challenges.cloudflare.com; form-action 'self' https://formspree.io https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+#   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+#   X-Content-Type-Options: nosniff
+#   Referrer-Policy: strict-origin-when-cross-origin
+#   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), magnetometer=(), gyroscope=(), accelerometer=()
+#   Cross-Origin-Opener-Policy: same-origin
+#   X-Frame-Options: DENY
+# --------------------------------------------------------------------
